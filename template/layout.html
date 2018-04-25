@@ -1,0 +1,57 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+  <title>Document</title>
+</head>
+<body>
+  <div class="navbar-fixed">
+    <nav>
+      <div class="row wrap nav-wrapper brown darken-4">
+        <div class="col l3">
+          <a href="/" class="brand-logo"><h5>Karkas-krovlya.dp.ua</h5></a>
+        </div>
+        <ul class="col hide-on-med-and-down">
+          <li><a href="/"><i class="material-icons left">layers_clear</i>Строительные материалы</a></li>
+          <li><a data-target='productsDropdown' class="dropdown-trigger">
+            <i class="material-icons left">local_grocery_store</i>Продукция
+          </a></li>
+          <li><a href="/"><i class="material-icons left">palette</i>RAL цвета</a></li>
+          <li><a href="/"><i class="material-icons left">phone</i>Контакты</a></li>
+        </ul>
+        <div class="col hide-on--large-and-down right" style="height: 100%; display: none">
+          <div class="input-field">
+            
+            <input id="search" type="search" placeholder="Поиск по сайту" class="white-text">
+            <label for="search" class="label-icon white-text">
+              <i class="material-icons">search</i>
+            </label>
+          </div>
+        </div>
+
+        <div id="productsDropdown" class="dropdown-content brown darken-4">
+        {% for product in products %}
+          <li><a href="/{{ product.slug }}" class="white-text">{{ product.title }}</a></li>
+        {% endfor %}
+        </div>
+
+      </div>
+    </nav>
+  </div>
+  {% block header %}{% endblock %}
+  <div class="container">
+    {% block content %}{% endblock %}
+  </div>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+  <script src="{% static 'main.js' %}"></script>
+</body>
+</html>
