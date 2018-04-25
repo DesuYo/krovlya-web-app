@@ -3,8 +3,8 @@
 {% block header %}
   <div class="carousel carousel-slider center">
   {% for slide in slides %}
-    <div class="carousel-item white-text" style="background-image: url({{ slide.background.url }})">
-      <div>
+    <div class="carousel-item" style="background-image: url({{ slide.background.url }})">
+      <div class="white-text content-ckeditor">
         <h6 class="yellow-text">{{ slide.title }}</h6>
         <p>{{ slide.description | safe }}</p>
       </div>
@@ -26,12 +26,12 @@
         <div class="card-image">
           <img src="{{ product.thumbnail.url }}" alt="{{ product.title }}">
         </div>
-        <div class="card-content grey-text text-darken-2">
+        <div class="card-content grey-text text-darken-2 content-ckeditor">
           <span class="card-title brown-text text-darken-4">{{ product.title }}</span>
           <p>{{ product.textPreview | safe }}</p>
         </div>
         <div class="card-action">
-          <a href="/{{ product.slug }}" class="btn brown darken-4 waves-effect waves-light" style="width: 100%">
+          <a href="/products/{{ product.slug }}" class="btn brown darken-4 waves-effect waves-light" style="width: 100%">
             Подробнее
           </a>
         </div>

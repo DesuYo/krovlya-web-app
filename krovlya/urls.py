@@ -23,7 +23,8 @@ from main import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.render_home)
+    path('', views.render_home),
+    path('products/<slug:id>', views.render_product_page)
 ]
 
 urlpatterns += staticfiles_urlpatterns()
