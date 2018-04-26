@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% load static from staticfiles %}
+
+{% block header %}
+  <div class="css-parallax white-text" style="background-image: url(/media/contacts_header.jpg)">
+    <h3 class="white-text">Контакты</h3>
+  </div>
+{% endblock %}
+
+{% block content %}
+ 
+ 
+      
+        <h5 class="brown-text center-align" style="line-height: 1.8em">
+          Карта проезда
+        </h5>
+      
+      <div id="map">
+
+      </div>
+      <div class="row grey-text text-darken-2 content-ckeditor">
+        {{ product.content | safe }}
+      </div>
+{% endblock %}
+
+{% block js %}
+  <script src="{% static 'gmap.js' %}"></script>
+{% endblock %}

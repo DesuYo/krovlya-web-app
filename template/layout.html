@@ -24,8 +24,8 @@
           <li><a data-target='productsDropdown' class="dropdown-trigger">
             <i class="material-icons left">local_grocery_store</i>Продукция
           </a></li>
-          <li><a href="/"><i class="material-icons left">palette</i>RAL цвета</a></li>
-          <li><a href="/"><i class="material-icons left">phone</i>Контакты</a></li>
+          <li><a href="/ral_colors"><i class="material-icons left">palette</i>RAL цвета</a></li>
+          <li><a href="/contacts"><i class="material-icons left">phone</i>Контакты</a></li>
         </ul>
         <div class="col hide-on--large-and-down right" style="height: 100%; display: none">
           <div class="input-field">
@@ -46,12 +46,48 @@
       </div>
     </nav>
   </div>
+
   {% block header %}{% endblock %}
+  
   <div class="container">
     {% block content %}{% endblock %}
   </div>
+    
+  </div>
+  <footer class="page-footer brown darken-4">
+    <div class="container">
+      <div class="row">
+        <div class="col s12 m6 l4">
+          <h5>Продукция</h5>
+          <div class="divider"></div>
+          <ul>
+          {% for product in products %}
+            <li><a href="/products/{{ product.slug }}" class="btn-flat white-text">
+              <i class="material-icons left">reply</i>
+              {{ product.title }}
+            </a></li>
+          {% endfor %}
+          </ul>
+        </div>
+        <div class="col s12 m6 l4">
+          <h5>Контакты</h5>
+          <div class="divider"></div>
+          <ul>
+          {% for contact in contacts %}
+            <li><p class="white-text"><i class="material-icons left">{{ contact.iconName }}</i>{{ contact.value }}</p></li>
+          {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <h6 style="text-align: center">© 2018 Copyright Text</h6>
+    </div>
+  </footer>
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
   <script src="{% static 'main.js' %}"></script>
+  {% block js %}{% endblock %}
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUbHttqUCL_DPAjDVhCC2v9_l5PTHadrE&callback=initMap"></script>
 </body>
 </html>

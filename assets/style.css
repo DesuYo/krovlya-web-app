@@ -1,0 +1,95 @@
+input[type="search"] {
+  height: 100% !important; 
+  margin: 0;
+  padding-left: 45px !important;
+}
+
+input[type="search"]:focus {
+  background-color: #6d4c41 !important;
+}
+
+input[type="search"]:focus label i{
+  color: white;
+}
+
+.nav-wrapper {
+  color: #eee;
+}
+
+.nav-wrapper ul li a {
+  text-transform: uppercase;
+}
+
+.nav-wrapper ul li a.active {
+  color: yellow;
+}
+
+.nav-wrapper ul li:hover {
+  background-color: #6d4c41;
+}
+
+.carousel .carousel-item {
+  height: 500px !important;
+  width: 100% !important;
+}
+
+.css-parallax {
+  height: 350px !important;
+  width: 100% !important;
+}
+
+.carousel-item, .css-parallax {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+.carousel-item div {
+  background: #222;
+  opacity: 0.75;
+  padding: 20px;
+}
+
+.content-ckeditor {
+  font-size: 18px;
+}
+
+.content-ckeditor img {
+  max-width: 100%;
+}
+
+.content-ckeditor h1, h2 {
+  font-size: 1.4em;
+}
+
+.content-ckeditor h3, h4 {
+  font-size: 1.3em;
+}
+
+.content-ckeditor h5, h6 {
+  font-size: 1.2em;
+}
+
+.content-ckeditor li {
+  list-style: none !important;
+  font-style: italic
+}
+
+.content-ckeditor li:before {
+  content: '\25C6';
+  color: #3e2723;
+  padding-right: 1em;
+}
+
+.content-ckeditor ul {
+  padding-left: 4em;
+}
+
+#map {
+  height: 400px;
+}

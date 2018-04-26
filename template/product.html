@@ -1,23 +1,23 @@
 {% extends "layout.html" %}
+{% load static from staticfiles %}
 
 {% block header %}
-  <div class="carousel carousel-slider center">
-    <div class="parallax-container">
-      <div class="css-parallax white-text" style="background-image: url(/media/products_header.jpg)">
-        <h3 class="white-text">{{ product.title }}</h3>
-      </div>
-    </div>
-
+  <div class="css-parallax white-text" style="background-image: url(/media/products_header.jpg)">
+    <h3 class="white-text">{{ product.title }}</h3>
   </div>
-    
 {% endblock %}
+
 {% block content %}
   <div class="row">
-    <h5 class="brown-text center-align" style="line-height: 1.8em">
-      {{ product.title }}
-    </h5>
-  </div>
-  <div class="row grey-text text-darken-2 content-ckeditor">
-    {{ product.content | safe }}
+    <aside class="col s12 l3">Aside</aside>
+    <div class="col s12 l9">
+      <h5 class="brown-text center-align" style="line-height: 1.8em">
+        {{ product.title }}
+      </h5>
+     
+      <div class="row grey-text text-darken-2 content-ckeditor">
+        {{ product.content | safe }}
+      </div>
+    </div>
   </div>  
 {% endblock %}

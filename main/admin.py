@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ProductModel, SlideModel
+from .models import ProductModel, SlideModel, ContactModel
 
 class ProductModelAdmin(admin.ModelAdmin):
     list_display = ['title', 'createdAt', 'updatedAt']
@@ -15,5 +15,13 @@ class SlideModelAdmin(admin.ModelAdmin):
     class Meta:
         model = ProductModel
 
+class ContactModelAdmin(admin.ModelAdmin):
+    list_display = ['value', 'createdAt', 'updatedAt']
+    search_fields = ['value', 'iconName']
+
+    class Meta:
+        model = ContactModel
+
 admin.site.register(ProductModel, ProductModelAdmin)
 admin.site.register(SlideModel, SlideModelAdmin)
+admin.site.register(ContactModel, ContactModelAdmin)

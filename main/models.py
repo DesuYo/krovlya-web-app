@@ -22,5 +22,11 @@ class SlideModel(models.Model):
 
     def __str__(self):
         return self.title
+
+class ContactModel(models.Model):
+    value = models.CharField(max_length=30)
+    iconName = models.SlugField(max_length=25)
+    createdAt = models.DateField(auto_now=False, auto_now_add=True)
+    updatedAt = models.DateField(auto_now=True, auto_now_add=False)
  
 
