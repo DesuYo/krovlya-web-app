@@ -1,20 +1,30 @@
 from django.shortcuts import render, get_object_or_404
+from django.urls import resolve
 from . import models
 
-def render_home(req):
+def retrieveUsefullStuff(req):
     products = models.ProductModel.objects.all()
-    promotions = models.PromotionModel.objects.all()
     contacts = models.ContactModel.objects.all()
+    return { 'url': req.path_info, 'products': products, 'contacts': contacts }
+
+def render_home(req):
+    promotions = models.PromotionModel.objects.all()
     deliveries = models.DeliveryModel.objects.all()
-    return render(req, 'home.html', { 'promotions': promotions, 'products': products, 'contacts': contacts, 'deliveries': deliveries })
+    options = { 'promotions': promotions, 'deliveries': deliveries }
+    options.update(retrieveUsefullStuff(req))
+    return render(req, 'home.html', options)
 
 def render_product_page(req, id=None):
-    products = models.ProductModel.objects.all()
     product = get_object_or_404(models.ProductModel, slug=id)
-    contacts = models.ContactModel.objects.all()
-    return render(req, 'product.html', { 'products': products, 'product': product, 'contacts': contacts })
+    options = { 'product': product }
+    options.update(retrieveUsefullStuff(req))
+    return render(req, 'product.html', options)
 
 def render_contacts_page(req):
-    products = models.ProductModel.objects.all()
-    contacts = models.ContactModel.objects.all()
-    return render(req, 'about.html', { 'products': products, 'contacts': contacts })
+    return render(req, 'about.html', retrieveUsefullStuff(req))
+
+def render_simple_page(req, id=None): 
+    page = get_object_or_404(models.SimplePageModel, slug=id)
+    options = { 'page': page }
+    options.update(retrieveUsefullStuff(req))
+    return render(req, 'simple.html', options)

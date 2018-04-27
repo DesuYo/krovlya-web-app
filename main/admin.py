@@ -1,26 +1,26 @@
 from django.contrib import admin
-from .models import ProductModel, PromotionModel, ContactModel, DeliveryModel
+from . import models
 
 class ProductModelAdmin(admin.ModelAdmin):
     list_display = ['title', 'createdAt', 'updatedAt']
     search_fields = ['title', 'textPreview', 'content']
 
     class Meta:
-        model = ProductModel
+        model = models.ProductModel
 
 class PromotionModelAdmin(admin.ModelAdmin):
     list_display = ['title', 'createdAt', 'updatedAt']
     search_fields = ['title', 'description']
 
     class Meta:
-        model = PromotionModel
+        model = models.PromotionModel
 
 class ContactModelAdmin(admin.ModelAdmin):
     list_display = ['value', 'createdAt', 'updatedAt']
     search_fields = ['value', 'iconName']
 
     class Meta:
-        model = ContactModel
+        model = models.ContactModel
 
 class DeliveryModelAdmin(admin.ModelAdmin):
     
@@ -28,10 +28,19 @@ class DeliveryModelAdmin(admin.ModelAdmin):
     search_fields = ['title', 'subTitle', 'description']
 
     class Meta:
-        model = DeliveryModel
+        model = models.DeliveryModel
         verbose_name = 'Deliveries'
 
-admin.site.register(ProductModel, ProductModelAdmin)
-admin.site.register(PromotionModel, PromotionModelAdmin)
-admin.site.register(ContactModel, ContactModelAdmin)
-admin.site.register(DeliveryModel, DeliveryModelAdmin)
+class SimplePageModelAdmin(admin.ModelAdmin):
+    
+    list_display = ['title', 'createdAt', 'updatedAt']
+    search_fields = ['title', 'content']
+
+    class Meta:
+        model = models.SimplePageModel
+
+admin.site.register(models.ProductModel, ProductModelAdmin)
+admin.site.register(models.PromotionModel, PromotionModelAdmin)
+admin.site.register(models.ContactModel, ContactModelAdmin)
+admin.site.register(models.DeliveryModel, DeliveryModelAdmin)
+admin.site.register(models.SimplePageModel, SimplePageModelAdmin)

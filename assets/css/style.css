@@ -77,7 +77,7 @@ input[type="search"]:focus label i{
 
 .content-ckeditor li {
   list-style: none !important;
-  font-style: italic
+  font-style: italic;
 }
 
 .content-ckeditor li:before {

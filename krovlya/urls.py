@@ -25,7 +25,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.render_home),
     path('products/<slug:id>', views.render_product_page),
-    path('about', views.render_contacts_page)
+    path('about', views.render_contacts_page),
+    path('<slug:id>', views.render_simple_page)
 ]
 
 urlpatterns += staticfiles_urlpatterns()

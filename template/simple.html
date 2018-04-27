@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% load static from staticfiles %}
+
+{% block header %}
+  <div class="css-parallax white-text" style="background-image: url({{ page.headerImage.url }})">
+    <h3 class="white-text">{{ page.title }}</h3>
+  </div>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="row grey-text text-darken-2 content-ckeditor">
+      {{ page.content | safe }}
+    </div>
+  </div> 
+{% endblock %}
