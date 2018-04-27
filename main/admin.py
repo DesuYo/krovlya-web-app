@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ProductModel, SlideModel, ContactModel
+from .models import ProductModel, PromotionModel, ContactModel, DeliveryModel
 
 class ProductModelAdmin(admin.ModelAdmin):
     list_display = ['title', 'createdAt', 'updatedAt']
@@ -8,12 +8,12 @@ class ProductModelAdmin(admin.ModelAdmin):
     class Meta:
         model = ProductModel
 
-class SlideModelAdmin(admin.ModelAdmin):
+class PromotionModelAdmin(admin.ModelAdmin):
     list_display = ['title', 'createdAt', 'updatedAt']
     search_fields = ['title', 'description']
 
     class Meta:
-        model = ProductModel
+        model = PromotionModel
 
 class ContactModelAdmin(admin.ModelAdmin):
     list_display = ['value', 'createdAt', 'updatedAt']
@@ -22,6 +22,16 @@ class ContactModelAdmin(admin.ModelAdmin):
     class Meta:
         model = ContactModel
 
+class DeliveryModelAdmin(admin.ModelAdmin):
+    
+    list_display = ['title', 'createdAt', 'updatedAt']
+    search_fields = ['title', 'subTitle', 'description']
+
+    class Meta:
+        model = DeliveryModel
+        verbose_name = 'Deliveries'
+
 admin.site.register(ProductModel, ProductModelAdmin)
-admin.site.register(SlideModel, SlideModelAdmin)
+admin.site.register(PromotionModel, PromotionModelAdmin)
 admin.site.register(ContactModel, ContactModelAdmin)
+admin.site.register(DeliveryModel, DeliveryModelAdmin)

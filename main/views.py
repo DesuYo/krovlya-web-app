@@ -3,9 +3,10 @@ from . import models
 
 def render_home(req):
     products = models.ProductModel.objects.all()
-    slides = models.SlideModel.objects.all()
+    promotions = models.PromotionModel.objects.all()
     contacts = models.ContactModel.objects.all()
-    return render(req, 'home.html', { 'slides': slides, 'products': products, 'contacts': contacts })
+    deliveries = models.DeliveryModel.objects.all()
+    return render(req, 'home.html', { 'promotions': promotions, 'products': products, 'contacts': contacts, 'deliveries': deliveries })
 
 def render_product_page(req, id=None):
     products = models.ProductModel.objects.all()
@@ -16,4 +17,4 @@ def render_product_page(req, id=None):
 def render_contacts_page(req):
     products = models.ProductModel.objects.all()
     contacts = models.ContactModel.objects.all()
-    return render(req, 'contacts.html', { 'products': products, 'contacts': contacts })
+    return render(req, 'about.html', { 'products': products, 'contacts': contacts })

@@ -12,8 +12,8 @@ input[type="search"]:focus label i{
   color: white;
 }
 
-.nav-wrapper {
-  color: #eee;
+.nav-wrapper, .sidenav a, .sidenav i {
+  color: #eee !important;
 }
 
 .nav-wrapper ul li a {
@@ -24,7 +24,7 @@ input[type="search"]:focus label i{
   color: yellow;
 }
 
-.nav-wrapper ul li:hover {
+.nav-wrapper li:hover, .dropdown-content li:hover {
   background-color: #6d4c41;
 }
 
@@ -56,7 +56,7 @@ input[type="search"]:focus label i{
 }
 
 .content-ckeditor {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .content-ckeditor img {
@@ -82,14 +82,27 @@ input[type="search"]:focus label i{
 
 .content-ckeditor li:before {
   content: '\25C6';
-  color: #3e2723;
   padding-right: 1em;
 }
 
 .content-ckeditor ul {
-  padding-left: 4em;
+  padding-left: 2em;
+}
+
+.content-ckeditor p {
+  text-align: justify;
 }
 
 #map {
   height: 400px;
 }
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex .col {
+  margin-left: 0 !important;
+}
+

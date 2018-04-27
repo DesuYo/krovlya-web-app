@@ -9,15 +9,8 @@
 
 {% block content %}
   <div class="row">
-    <aside class="col s12 l3">Aside</aside>
-    <div class="col s12 l9">
-      <h5 class="brown-text center-align" style="line-height: 1.8em">
-        {{ product.title }}
-      </h5>
-     
-      <div class="row grey-text text-darken-2 content-ckeditor">
-        {{ product.content | safe }}
-      </div>
+    <div class="row grey-text text-darken-2 content-ckeditor">
+      {{ product.content | safe }}
     </div>
   </div>  
 {% endblock %}
