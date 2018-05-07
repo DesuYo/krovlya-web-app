@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% load static from staticfiles %}
+
+{% block header %}
+  <div class="css-parallax white-text" style="background-image: url({{ page.headerImage.url }})">
+
+  </div>
+{% endblock %}
+
+{% block content %}
+  <h5 class="brown-text center-align" style="line-height: 1.8em">{{ page.title }}</h5>
+  <div class="row grey-text text-darken-2 content-ckeditor">
+    {{ page.content | safe }}
+  </div>
+  <h5 class="brown-text center-align" style="line-height: 1.8em">Карта проезда</h5>
+  <div id="map"></div>
+    
+{% endblock %}
+
+{% block js %}
+  <script src="{% static 'js/gmap.js' %}"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUbHttqUCL_DPAjDVhCC2v9_l5PTHadrE&callback=initMap"></script>
+{% endblock %}

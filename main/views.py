@@ -21,7 +21,10 @@ def render_product_page(req, id=None):
     return render(req, 'product.html', options)
 
 def render_contacts_page(req):
-    return render(req, 'about.html', retrieveUsefullStuff(req))
+    page = get_object_or_404(models.SimplePageModel, slug='about_us')
+    options = { 'page': page }
+    options.update(retrieveUsefullStuff(req))
+    return render(req, 'about_us.html', options)
 
 def render_simple_page(req, id=None): 
     page = get_object_or_404(models.SimplePageModel, slug=id)
