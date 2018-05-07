@@ -1,6 +1,6 @@
 function initMap() {
   var map = document.querySelector('#map')
-  var location = new google.maps.LatLng(48.4295057, 34.9780057)
+  var location = new google.maps.LatLng(48.427806, 34.985024)
   var mapInstance = new google.maps.Map(map, {
     zoom: 15,
     center: location

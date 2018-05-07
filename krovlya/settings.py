@@ -134,3 +134,8 @@ CKEDITOR_CONFIGS = {
         'toolbar': 'full'
     }
 }
+
+# try:
+    #from .prod_settings import *
+#except:
+    #pass
