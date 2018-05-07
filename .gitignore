@@ -1,4 +1,4 @@
 media
 static
 db.sqlite3
-prod.settings.py
+prod_settings.py
